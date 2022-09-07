@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes, Outlet } from 'react-router-dom';
 // import Header from './Component/Header';
 import Carousel from './Component/Carousel';
 import Intro from './Component/Intro';
@@ -8,6 +8,7 @@ import Service from './Component/Service';
 import Gallery from './Component/Gallery';
 import Feedback from './Component/Feedback';
 import Contact from './Component/Contact';
+import NotFound from './Component/NotFound';
 
 
 
@@ -26,6 +27,7 @@ function App() {
               <li><Link to="/feedback">FEEDBACK</Link></li>
               <li><Link to="/contact">CONTACT</Link></li>
             </ul>
+            <Outlet/>
           </nav>
         </div>
       </header>
@@ -37,6 +39,7 @@ function App() {
         <Route path='/products' element={<Gallery />} />
         <Route path='/feedback' element={<Feedback />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='*' element={<NotFound/>} />
       </Routes>
 
       <footer>
